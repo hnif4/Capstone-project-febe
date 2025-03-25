@@ -27,7 +27,7 @@ trash-to-cash-be/
 ## 🔧 Cara Menjalankan
 1. **Clone repository**
    ```sh
-   git clone https://github.com/username/repo.git
+   git clone https://github.com/hnif4/Capstone-project-febe
 2. **Masuk ke folder backend**
    cd trash-to-cash-be
 
@@ -38,8 +38,8 @@ trash-to-cash-be/
     cp .env.example .env
 
 5. **Jalankan server**
-    npm start
-    atau pakai nodemon npmrun dev
+    -  npm start
+    -  atau pakai nodemon npm run dev
 
 ## 🛠 Teknologi yang Digunakan
 -  Node.js
@@ -49,11 +49,11 @@ trash-to-cash-be/
 - Postman untuk uji API
 
 ## 📜 Dokumentasi API
--Dokumentasi API tersedia dalam Postman Collection:
--File: Trashtocash Api Tes.postman_collection.json
--Bisa diimpor langsung ke Postman
+Dokumentasi API tersedia dalam Postman Collection:
+-  File: Trashtocash Api Tes.postman_collection.json
+-  Bisa diimpor langsung ke Postman
 
-© 2024 Trash to Cash CC25-SF039 Team 🚀
+© 2025 Trash to Cash CC25-SF039 Team 🚀
 
 
 ### **🔄 Cara Commit & Push ke GitHub**
