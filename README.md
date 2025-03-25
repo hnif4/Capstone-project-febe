@@ -1,6 +1,6 @@
 # Trash to Cash - Backend
 
-Backend API untuk aplikasi Trash to Cash. Kami mengembangkan proyek Trash to cash berdasarkan keterkaitan antara Green Economy dan Green Jobs,yaitu pertumbuhan ekonomi yang raham lingkungan dan berkelanjutan untuk menciptakan lapangan kerja yang layak sekaligus menjaga kelestarian lingkungan.
+Backend API untuk aplikasi Trash to Cash. Kami mengembangkan proyek Trash to cash berdasarkan keterkaitan antara Green Economy dan Green Jobs,yaitu pertumbuhan ekonomi yang ramah lingkungan dan berkelanjutan untuk menciptakan lapangan kerja yang layak sekaligus menjaga kelestarian lingkungan.
 
 ## 🚀 Fitur
 - Autentikasi pengguna (JWT)
