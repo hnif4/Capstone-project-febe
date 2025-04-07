@@ -402,13 +402,34 @@
 					}
 				],
 				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Botol bekas\",\r\n    \"image\": \"botol.jpg\",\r\n    \"category\": \"non-organic\",\r\n    \"weight\": \"2.0\",\r\n    \"location\":\"Bogor\",\r\n    \"status\": \"pending\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Buah busuk",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "postman-cloud:///1f013b3b-b5b6-4c50-a28d-432a2dc5762b"
+						},
+						{
+							"key": "weight",
+							"value": "0.6",
+							"type": "text"
+						},
+						{
+							"key": "location",
+							"value": "Bogor",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "pending",
+							"type": "text"
 						}
-					}
+					]
 				},
 				"url": {
 					"raw": "http://localhost:{{port}}/api/trash",
@@ -442,16 +463,42 @@
 					}
 				],
 				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Kardus\",\r\n    \"image\": \"kardus.jpg\",\r\n    \"category\": \"non-organic\",\r\n    \"weight\": \"1.5\",\r\n    \"location\":\"jakarta\",\r\n    \"status\": \"pending\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Sisa makanan",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "organic",
+							"type": "text"
+						},
+						{
+							"key": "weight",
+							"value": "0.5",
+							"type": "text"
+						},
+						{
+							"key": "location",
+							"value": "Cilacap",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "pending",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "postman-cloud:///1f013c16-1e0b-4e60-8f25-018d5d08c995"
 						}
-					}
+					]
 				},
 				"url": {
-					"raw": "http://localhost:{{port}}/api/trash/12",
+					"raw": "http://localhost:{{port}}/api/trash/15",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -460,7 +507,7 @@
 					"path": [
 						"api",
 						"trash",
-						"12"
+						"15"
 					]
 				}
 			},
@@ -483,7 +530,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:{{port}}/api/trash/12",
+					"raw": "http://localhost:{{port}}/api/trash/14",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -492,7 +539,7 @@
 					"path": [
 						"api",
 						"trash",
-						"12"
+						"14"
 					],
 					"query": [
 						{
@@ -522,7 +569,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:{{port}}/api/trash/10",
+					"raw": "http://localhost:{{port}}/api/trash/15",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -531,7 +578,7 @@
 					"path": [
 						"api",
 						"trash",
-						"10"
+						"15"
 					]
 				}
 			},
@@ -1110,6 +1157,68 @@
 						"api",
 						"notifications",
 						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "integrasi ml ke be",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "postman-cloud:///1f013c16-1e0b-4e60-8f25-018d5d08c995"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/predict",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"predict"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "integrasi be ke fe",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "postman-cloud:///1f013c2c-933e-4550-94aa-ed8d5828c2fd"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/predict",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"predict"
 					]
 				}
 			},

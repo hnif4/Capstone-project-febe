@@ -10,6 +10,9 @@ const userChallengesRoutes = require('./routes/userChallengesRoutes')
 const ordersRoutes = require('./routes/ordersRoutes')
 const notificationRoutes = require('./routes/notificationRoutes')
 
+//Model Machine Learning
+const mlPredictRoute = require('./routes/mlPredictRoutes')
+
 const app = express()
 const port = 3000
 
@@ -21,6 +24,9 @@ app.use('/api', userRoutes)
 app.use('/api', userChallengesRoutes)
 app.use('/api', ordersRoutes)
 app.use('/api', notificationRoutes)
+
+//Model machine learning 
+app.use('/api', mlPredictRoute)
 
 app.get('/', (req, res) => {
   res.send('Welcome to Trash to Cash API!')

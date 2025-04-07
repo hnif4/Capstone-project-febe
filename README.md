@@ -4,10 +4,13 @@ Backend API untuk aplikasi Trash to Cash. Kami mengembangkan proyek Trash to cas
 
 ## 🚀 Fitur
 - Autentikasi pengguna (JWT)
-- CRUD sampah (trash)
-- Manajemen tantangan (challenges)
+- CRUD sampah (trash) 
+- Klasifikasi sampah dengan model machine learning
+- Gamifikasi (Challenge/Achievement)
+- Edukasi Interaktif 
 - Notifikasi pengguna
 - Manajemen pesanan (orders)
+- Sistem poin & Reward
 
 ## 📂 Struktur Folder
 trash-to-cash-be/
@@ -18,10 +21,11 @@ trash-to-cash-be/
 │── middleware/      # Authentication & Authorization
 │── utils/           # Template response
 │── .env.example     # Contoh env (jangan commit yang asli!)
-│── postman_collection.json  # Dokumentasi API
-│── db_trashtocash.sql  # Dump database
 │── server.js        # Main file
 │── package.json     # Dependencies
+│── db_trashtocash.sql  # Dump database
+│── Trashtocash API Test.postman_collection.json  # Dokumentasi API
+
 
 
 ## 🔧 Cara Menjalankan
@@ -37,7 +41,11 @@ trash-to-cash-be/
 4. **Buat file .env dari contoh**
     cp .env.example .env
 
-5. **Jalankan server**
+5. **Impor file db ke phpmyadmin**
+    -  db_trashtocash.sql
+    -  cek apakah nama database sudah sama dengan yang ada di config/connection.js
+
+6. **Jalankan server**
     -  npm start
     -  atau pakai nodemon npm run dev
 

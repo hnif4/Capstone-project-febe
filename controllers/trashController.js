@@ -1,5 +1,9 @@
 const trashModel = require('../models/trashModel')
 const response = require('../utils/response')
+const fs = require('fs')
+const path = require('path')
+const axios = require('axios')
+const FormData = require('form-data')
 
 const getAllTrash = (req, res) => {
     trashModel.getAll((err, result) => {
@@ -24,24 +28,37 @@ const getTrashById = (req, res) => {
     })
 }
 
-const createTrash = (req, res) => {
+const createTrash = async (req, res) => {
     try {
         const user_id = req.user.id
-        const { name, image, category, weight, location, status } = req.body
+        const { name, weight, location, status } = req.body
+        const image = req.file?.filename // ambil dari file upload via multer
 
-        if (!name || !image || !category || !weight || !location || !status) {
+        if (!name || !image || !weight || !location || !status) {
             return response(400, null, "Missing required fields", res)
         }
+
+        // Kirim ke Flask untuk klasifikasi
+        const formData = new FormData()
+        formData.append('file', fs.createReadStream(path.join(__dirname, '../uploads/', image)))
+
+        const flaskResponse = await axios.post('http://127.0.0.1:5000/predict', formData, {
+            headers: formData.getHeaders()
+        })
+
+        const prediction = flaskResponse.data.prediction
+        const category = prediction === 0 ? 'organic' : 'non-organic'
 
         trashModel.create(user_id, name, image, category, weight, location, status, (err, result) => {
             if (err) {
                 console.error("Database Insert Error:", err)
                 return response(500, null, "Error adding data", res)
             }
-            response(201, result, "Data added successfully", res)
+            response(201, result, "Data added successfully with category prediction", res)
         })
+
     } catch (error) {
-        console.error("Error in createTrash:", error)
+        console.error("Error in createTrash:", error.message)
         response(500, null, "Internal server error", res)
     }
 }
@@ -50,9 +67,9 @@ const createTrash = (req, res) => {
 const updateTrash = (req, res) => {
     const { id } = req.params
     const user_id = req.user.id
-    const { name, image, category, weight, location, status } = req.body
+    const { name, category, weight, location, status } = req.body
 
-    if (!name || !image || !category || !weight || !location || !status) {
+    if (!name || !category || !weight || !location || !status) {
         return response(400, null, "Missing required fields", res)
     }
 
@@ -68,13 +85,14 @@ const updateTrash = (req, res) => {
 
         const trash = results[0]
 
-        // Pastikan hanya pemilik sampah yang bisa update
         if (trash.user_id !== user_id) {
             return response(403, null, "Unauthorized to update this trash", res)
         }
 
-        // Update tanpa mengubah user_id
-        trashModel.update(id, trash.user_id, name, image, category, weight, location, status, (err, result) => {
+        // Cek apakah ada gambar baru
+        const newImage = req.file ? req.file.filename : trash.image
+
+        trashModel.update(id, trash.user_id, name, newImage, category, weight, location, status, (err, result) => {
             if (err) {
                 console.error("Database Update Error:", err)
                 return response(500, null, "Error updating data", res)
