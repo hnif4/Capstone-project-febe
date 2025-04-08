@@ -61,6 +61,19 @@ Dokumentasi API tersedia dalam Postman Collection:
 -  File: Trashtocash Api Tes.postman_collection.json
 -  Bisa diimpor langsung ke Postman
 
+
+## 👥 Tim Pengembang
+
+**Nama Tim:** CC25-SF039 Team
+
+**Anggota:**
+- Farell Kurniawan – Machine Learning
+- Farel Puna Nugraha – Machine Learning
+- Muhammad Sofi Fauzan - Frontend Backend 
+- Andini Eka Lisnawati - Frontend Backend 
+- Aurell Ghania Ramadhani - Frontend Backend 
+- Siti Nur Hanifah – Frontend Backend 
+
 © 2025 Trash to Cash CC25-SF039 Team 🚀
 
 
@@ -69,3 +82,4 @@ Dokumentasi API tersedia dalam Postman Collection:
 git add README.md
 git commit -m "Add README.md sesuai struktur folder"
 git push origin development
+
