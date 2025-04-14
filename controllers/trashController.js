@@ -42,7 +42,7 @@ const createTrash = async (req, res) => {
         const formData = new FormData()
         formData.append('file', fs.createReadStream(path.join(__dirname, '../uploads/', image)))
 
-        const flaskResponse = await axios.post('http://127.0.0.1:5000/predict', formData, {
+        const flaskResponse = await axios.post('https://puunnnpun-ml-crashtocash.hf.space/predict', formData, {
             headers: formData.getHeaders()
         })
 
