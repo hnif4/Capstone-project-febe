@@ -12,7 +12,7 @@ router.post('/predict', upload.single('file'), async (req, res) => {
     const form = new FormData()
     form.append('file', fs.createReadStream(req.file.path))
 
-    const response = await axios.post('http://127.0.0.1:5000/predict', form, {
+    const response = await axios.post('https://puunnnpun-ml-crashtocash.hf.space/predict', form, {
       headers: form.getHeaders()
     })
 
