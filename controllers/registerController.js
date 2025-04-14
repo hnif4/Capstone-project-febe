@@ -11,6 +11,7 @@ const register = (req, res) => {
 
     bcrypt.hash(password, 10, (err, hashedPassword) => {
         if (err) {
+            console.error("Error hashing password:", err); 
             return response(500, null, "Error hashing password", res)
         }
 
