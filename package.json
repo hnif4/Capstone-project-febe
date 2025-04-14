@@ -2,7 +2,7 @@
   "name": "trash-to-cash-be",
   "version": "1.0.0",
   "description": "capstone project tim cc25-sf039 membangun aplikasi trash to cash",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js"
